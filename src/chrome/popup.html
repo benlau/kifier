@@ -26,6 +26,20 @@ body {
     white-space: nowrap;
 }
 
+.button {
+	display : inline-block;
+	font-size : 14px;
+	margin-top : 20px;
+	background-color : #f5f5f5;
+	padding : 2px 10px 2px 10px;
+	cursor: pointer;
+}
+
+.active {
+	background-color : #4D90FE;
+	color : #fff;
+}
+
 </style>
 <script src="lib/jquery-1.7.1.min.js"></script>
 <script src="popup.js"></script>
@@ -34,6 +48,8 @@ body {
 <div id="header">Kifier : This page's link is copied to clipboard as... </div>
 
 <div id="copydata"></div>
+
+<div id="hyperlink" class="button active">Hyperlink</div> <div id="gspreadsheet" class="button">Google Spreadsheet</div>
 
 </body>
 </html>

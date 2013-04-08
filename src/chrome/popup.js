@@ -115,12 +115,36 @@ function copy(node) {
     document.execCommand('copy');
 }
 
-$(document).ready(function() {
+function button(id,linkCreator) {
 
+	$(id).click(function() {
+		$(".button").removeClass("active");
+		$(this).addClass("active");
+		var a = linkCreator();
+		$("#copydata").html(a);		
+		copy($("#copydata").get(0));                    
+	});
+	
+}
+
+$(document).ready(function() {
+	
+	// The current tab
+	var tab;
+	var buttons = ["#hyperlink","#gspreadsheet"]
+
+	button("#hyperlink",function(){
+		return "<a href='"+ tab.url +"'>" + tab.title + "</a>";
+	});
+
+	button("#gspreadsheet",function(){
+		return '=hyperlink("'+ tab.url+ '","' + tab.title + '")';
+	});
+	
     chrome.windows.getCurrent(function(win) { 
     	chrome.tabs.query( {'windowId': win.id, 'active': true}, function(tabs){
     	    if (tabs && tabs.length > 0) { 
-                var tab = tabs[0];
+                tab = tabs[0];
                 ContentDocument.init(tab);
                 LinkCreator.create(tab,win,function(a) {
                     $("#copydata").html(a);
