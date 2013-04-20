@@ -47,6 +47,11 @@ $(document).ready(function() {
 		return link(tab);
 	}).addClass("active");
 
+	button("HTML",function(){
+		//return '&lt;a href="' + tab.url + '"&gt;' + table.html + 
+		return '&lt;a href="' + tab.url + '"&gt;' + tab.title + '&lt;/a&gt;';
+	});
+
 	button("Google Spreadsheet",function(){
 		return '=hyperlink("'+ tab.url+ '","' + tab.title + '")';
 	});
