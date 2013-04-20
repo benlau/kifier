@@ -1,6 +1,6 @@
 {
   "name": "Kifier",
-  "version": "0.3",
+  "version": "0.3.1",
   "description": "The missing tool to turn your Web 2.0 services into Wiki",
   "manifest_version": 2,
   "permissions": [
