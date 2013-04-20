@@ -56,6 +56,10 @@ $(document).ready(function() {
 		return '=hyperlink("'+ tab.url+ '","' + tab.title + '")';
 	});
 	
+	button("Markdown",function() {
+		return '[' + tab.title + "](" + tab.url+ ")";
+	});
+	
     chrome.windows.getCurrent(function(win) { 
     	chrome.tabs.query( {'windowId': win.id, 'active': true}, function(tabs){
     	    if (tabs && tabs.length > 0) { 
