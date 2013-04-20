@@ -17,16 +17,22 @@ function copy(node) {
 /** Bind a button for link format conversion
  */
 
-function button(id,linkCreator) {
+function button(name,linkCreator) {
+	var div = $("<div>" + name + " <div>");
 
-	$(id).click(function() {
+	$(div).addClass("button");
+
+	$(div).click(function() {
 		$(".button").removeClass("active");
 		$(this).addClass("active");
 		var a = linkCreator();
 		$("#copydata").html(a);		
 		copy($("#copydata").get(0));                    
 	});
+
+	$("#buttongroup").append(div);
 	
+	return div;
 }
 
 function link(tab){
@@ -34,16 +40,14 @@ function link(tab){
 }
 
 $(document).ready(function() {
-	
 	// The current tab
 	var tab;
-	var buttons = ["#hyperlink","#gspreadsheet"]
 
-	button("#hyperlink",function(){
+	button("Hyperlink",function(){
 		return link(tab);
-	});
+	}).addClass("active");
 
-	button("#gspreadsheet",function(){
+	button("Google Spreadsheet",function(){
 		return '=hyperlink("'+ tab.url+ '","' + tab.title + '")';
 	});
 	
