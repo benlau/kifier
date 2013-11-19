@@ -53,7 +53,7 @@ $(document).ready(function() {
 	});
     
     button("Facebook",function() {
-       return tab.title + "<br>" + tab.url; 
+        return tab.title + "<br>" + tab.url; 
     });
 
     button("Markdown",function() {
