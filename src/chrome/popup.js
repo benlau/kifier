@@ -51,14 +51,19 @@ $(document).ready(function() {
 		//return '&lt;a href="' + tab.url + '"&gt;' + table.html + 
 		return '&lt;a href="' + tab.url + '"&gt;' + tab.title + '&lt;/a&gt;';
 	});
+    
+    button("Facebook",function() {
+       return tab.title + "<br>" + tab.url; 
+    });
+
+    button("Markdown",function() {
+		return '[' + tab.title + "](" + tab.url+ ")";
+	});    
 
 	button("Google Spreadsheet",function(){
 		return '=hyperlink("'+ tab.url+ '","' + tab.title + '")';
 	});
 	
-	button("Markdown",function() {
-		return '[' + tab.title + "](" + tab.url+ ")";
-	});
 	
     chrome.windows.getCurrent(function(win) { 
     	chrome.tabs.query( {'windowId': win.id, 'active': true}, function(tabs){
