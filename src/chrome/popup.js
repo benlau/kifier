@@ -52,7 +52,7 @@ $(document).ready(function() {
 		return '&lt;a href="' + tab.url + '"&gt;' + tab.title + '&lt;/a&gt;';
 	});
     
-    button("Facebook",function() {
+    button("Two Lines",function() {
         return tab.title + "<br>" + tab.url; 
     });
 
